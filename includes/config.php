@@ -19,3 +19,11 @@
         ['id' => 12, 'name' => 'almond-milk', 'category' => 'dairy', 'price' => 80, 'stock_quantity' => 87, 'dietary_tag' => 'vegan']
     ];
 
+    $filter = 'dairy';
+    $filterCategory = array_filter( $products, function($cat) use($filter){
+        return $cat['category'] == $filter;
+    });
+
+    foreach($filterCategory as $product => $detail){
+        echo $detail['category'];
+    }
