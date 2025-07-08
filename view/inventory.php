@@ -11,10 +11,11 @@
         <input type="submit" name="submit" value="Filter">
     </form>
 
-    <?php if(!empty($filt)   )  : ?>
+    <?php if(!empty($filt) )  : ?>
        
         
     <table>
+    
         <thead>
             <tr>
                 <th>ID</th>
@@ -37,8 +38,13 @@
                     <td> <?php echo $details['price'] ; ?></td>
                     <td> <?php echo $details['stock_quantity'] ; ?></td>
                     <td> <?php echo $details['dietary_tag'] ; ?></td>
-                    <td> <input type="number" name="quantity" placeholder="select quantity"> </td>
-                    <td> <button type="submit">Add to Cart</button></td>
+                    <form action="index.php" method="post">
+                        <label for="id"></label>
+                        <input type="hidden" id="id" name="id" value=<?=$details['id'];?> >
+                        <td> <input type="number" id="quantity" name="quantity" placeholder="select quantity"> </td>
+                        <td> <button type="submit">Add to Cart</button></td>
+                    </form>
+                    
 
                 </tr>
             <?php endforeach ; ?>
